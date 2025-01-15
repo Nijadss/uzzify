@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzz Function Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uzz Function</h1>
+    <p>Enter a string to see the result:</p>
+    <input type="text" id="userInput" placeholder="Enter your string">
+    <button onclick="processInput()">Submit</button>
+    <div id="output"></div>
+
+    <script>
+        function uzz(s) {
+            if (s[0] === 'A' || s[0] === 'a') {
+                if (s[1] === 'u') {
+                    return s[0] + s[1] + s[2] + 'uzz';
+                } else {
+                    return s[0] + 'uzz';
+                }
+            } else {
+                return s[0] + 'uzz';
+            }
+        }
+
+        function processInput() {
+            const input = document.getElementById('userInput').value;
+            if (input.length < 3) {
+                document.getElementById('output').innerText = 'Input should be at least 3 characters long.';
+                return;
+            }
+            const result = uzz(input);
+            document.getElementById('output').innerText = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
